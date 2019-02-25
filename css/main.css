@@ -1,0 +1,32 @@
+#aboutUs {
+    display: none;
+}
+
+#supportUs {
+    display: none;
+}
+#adopt {
+    display: none;
+}
+
+#register {
+    display: none;
+}
+
+#login {
+    display: none;
+}
+
+
+.nav-button{
+    background: none;
+    border: none;   
+    outline: none;
+}
+.nav-button:hover{
+    cursor: pointer;
+}
+
+.register-form input{
+    width: 50%;
+}

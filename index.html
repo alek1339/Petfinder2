@@ -68,6 +68,24 @@
             </script>
         </section>
 
+        <section id="adopted">
+            <script>
+                (async () => {
+                    let adopted = await $.get('templates/adopted.hbs')
+                    $("#adopted").append(Handlebars.compile(adopted))
+                })();
+            </script>
+        </section>
+
+        <section id="contacts">
+            <script>
+                (async () => {
+                    let contacts = await $.get('templates/contacts.hbs')
+                    $("#contacts").append(Handlebars.compile(contacts))
+                })();
+            </script>
+        </section>
+
         <section id="register">
             <script>
                 (async () => {

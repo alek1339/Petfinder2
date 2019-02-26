@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-    <a class="navbar-brand abs" href="index.html">Logo</a>
+    <a class="navbar-brand abs" href="index.html">petfinder</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -41,7 +41,6 @@
                     if (localStorage.getItem('jwtToken') !== null) {
                         document.getElementById('loginBtn').style.display = 'none'
                         document.getElementById('registerBtn').style.display = 'none'
-                        console.log('Logged')
                     } else {
                         document.getElementById('logoutBtn').style.display = 'none'
                     }

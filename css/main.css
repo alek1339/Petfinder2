@@ -1,16 +1,71 @@
-#aboutUs, #supportUs, #adopt, #adopted, #register, #login, #addAnimals, #addBtn, #contacts {
+#aboutUs, #supportUs, #adopt, #adopted, #register, #login, #addAnimals, #addBtn, #contacts, .map {
     display: none;
+}
+
+nav{
+    background-color: #101C39;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    color: #101C39
+}
+
+#contacts h1{
+    padding-bottom: .5rem;
+}
+#contacts h2{
+    font-size: 1.6rem;
+}
+
+.fab{
+    font-size: 1.7rem;
+    padding: .7rem;
+    color: #101C39;
 }
 
 .nav-button{
     background: none;
     border: none;   
+    color: white;
     outline: none;
 }
+
+button{
+    background-color: #101C39;
+    color: #00F6BD;
+}
+
+.active{
+    color: #00F6BD;
+    outline: none;
+    border: none;   
+}
+
 .nav-button:hover{
     cursor: pointer;
 }
 
-.register-form input{
+.register-form input, .login-form input{
     width: 50%;
+}
+
+.container{
+    min-height: 100vh;
+}
+
+.contacts-container{
+    min-height: 100px;
+}
+
+footer{
+    background-color: #101C39;
+    padding: 2rem;
+    text-align: center;
+}
+.footer{
+    color: white;
+}
+
+.navbar-brand{
+    color: #00F6BD;
 }

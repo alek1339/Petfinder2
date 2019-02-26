@@ -3,7 +3,7 @@ var aboutUs = document.getElementById('aboutUs')
 var supportUs = document.getElementById('supportUs')
 var adopt = document.getElementById('adopt')
 
-function loginClicked () {
+function loginClicked() {
   home.style.display = 'none'
   aboutUs.style.display = 'none'
   supportUs.style.display = 'none'
@@ -19,7 +19,7 @@ function loginClicked () {
   document.getElementById('loginBtn').classList.add('active')
 }
 
-function registerClicked () {
+function registerClicked() {
   home.style.display = 'none'
   aboutUs.style.display = 'none'
   supportUs.style.display = 'none'
@@ -35,7 +35,7 @@ function registerClicked () {
   document.getElementById('loginBtn').classList.remove('active')
 }
 
-function aboutUsClicked () {
+function aboutUsClicked() {
   home.style.display = 'none'
   aboutUs.style.display = 'block'
   supportUs.style.display = 'none'
@@ -51,7 +51,7 @@ function aboutUsClicked () {
   document.getElementById('loginBtn').classList.remove('active')
 }
 
-function homeClicked () {
+function homeClicked() {
   home.style.display = 'block'
   aboutUs.style.display = 'none'
   supportUs.style.display = 'none'
@@ -67,7 +67,7 @@ function homeClicked () {
   document.getElementById('loginBtn').classList.remove('active')
 }
 
-function supportUsClicked () {
+function supportUsClicked() {
   home.style.display = 'none'
   supportUs.style.display = 'block'
   aboutUs.style.display = 'none'
@@ -83,7 +83,7 @@ function supportUsClicked () {
   document.getElementById('loginBtn').classList.remove('active')
 }
 
-function adoptClicked () {
+function adoptClicked() {
   home.style.display = 'none'
   supportUs.style.display = 'none'
   aboutUs.style.display = 'none'
@@ -97,4 +97,22 @@ function adoptClicked () {
   document.getElementById('aboutUsBtn').classList.remove('active')
   document.getElementById('registerBtn').classList.remove('active')
   document.getElementById('loginBtn').classList.remove('active')
+}
+
+function addAnimalsClicked() {
+  home.style.display = 'none'
+  supportUs.style.display = 'none'
+  aboutUs.style.display = 'none'
+  adopt.style.display = 'none'
+  document.getElementById('register').style.display = 'none'
+  document.getElementById('login').style.display = 'none'
+  document.getElementById('addAnimals').style.display = 'block'
+
+  document.getElementById('homeBtn').classList.remove('active')
+  document.getElementById('adoptBtn').classList.remove('active')
+  document.getElementById('supportUsBtn').classList.remove('active')
+  document.getElementById('aboutUsBtn').classList.remove('active')
+  document.getElementById('registerBtn').classList.remove('active')
+  document.getElementById('loginBtn').classList.remove('active')
+  document.getElementById('addBtn').classList.add('active')
 }

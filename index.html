@@ -86,6 +86,39 @@
             </script>
         </section>
 
+        <section id="addAnimals">
+            <script>
+                (async () => {
+                    if (isAdmin()) {
+                        let addAnimals = await $.get('templates/addAnimals.hbs')
+                        $("#addAnimals").append(Handlebars.compile(addAnimals))
+                        document.getElementById('addBtn').style.display = 'block'
+                    } else {
+                        $("#addAnimals").append(Handlebars.compile('<h1>This page is only for admins!</h1>'))
+                    }
+
+                    function parseJwt(token) {
+                        var base64Url = token.split('.')[1]
+                        var base64 = base64Url.replace('-', '+').replace('_', '/')
+                        return JSON.parse(window.atob(base64))
+                    }
+
+                    function isAdmin() {
+                        console.log('Here')
+                        let token = localStorage.getItem('jwtToken')
+                        let decoded = parseJwt(token)
+                        console.log(decoded)
+                        if (Date.now() / 1000 < decoded.exp && decoded.id === '5c739bd04bb07817f875af6b') {
+                            return true
+                        } else {
+                            return false
+                        }
+                    }
+
+                })();
+            </script>
+        </section>
+
     </div>
 
 
@@ -98,7 +131,7 @@
     <script src="./js/nav.js"></script>
     <script src="./js/user.js"></script>
 
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </body>
 
 </html>

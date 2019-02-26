@@ -8,13 +8,16 @@ const users = require('./routes/users')
 
 mongoose.Promise = global.Promise
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
-  () => { console.log('Database is connected') },
-  err => { console.log('Can not connect to the database' + err) }
+    () => { console.log('Database is connected') },
+    err => { console.log('Can not connect to the database' + err) }
 )
 
 const app = express()
 
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 app.use(cors())
 app.use('/users', users)
 

@@ -17,6 +17,14 @@
     display: none;
 }
 
+#addAnimals{
+    display: none;
+}
+
+#addBtn{
+    display: none;
+}
+
 
 .nav-button{
     background: none;

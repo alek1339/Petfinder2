@@ -10,68 +10,65 @@ const keys = require('../keys')
 router.get('/test', (req, res) => res.json({ msg: 'Users Works' }))
 
 // Register User
-router.post('/register', (req, res) =>
+router.post('/register', (req, res) => {
+  User.findOne({ email: req.body.email }).then(user => {
+    if (user) {
+      return res.status(400).json('Email already exists!')
+    } else {
+      const newUser = new User({
+        firstName: req.body.fName,
+        lastName: req.body.lName,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password
+      })
 
-    User.findOne({ email: req.body.email }).then(user => {
-        if (user) {
-            return res.status(400).json('Email already exists!')
-        } else {
-            const newUser = new User({
-                firstName: req.body.fName,
-                lastName: req.body.lName,
-                email: req.body.email,
-                username: req.body.username,
-                password: req.body.password
-            })
-            console.log(req.body)
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          if (err) throw err
+          newUser.password = hash
 
-            bcrypt.genSalt(10, (err, salt) => {
-                bcrypt.hash(newUser.password, salt, (err, hash) => {
-                    if (err) throw err
-                    newUser.password = hash
-
-                    newUser
-                        .save()
-                        .then(user => res.json(user))
-                        .catch(err => console.log(err))
-                })
-            })
-        }
-    })
-)
+          newUser
+            .save()
+            .then(user => res.json(user))
+            .catch(err => console.log(err))
+        })
+      })
+    }
+  })
+})
 
 router.post('/login', (req, res) => {
-    const email = req.body.email
-    const password = req.body.password
+  const email = req.body.email
+  const password = req.body.password
 
-    // Find the user by email
-    User.findOne({ email: email })
-        .then(user => {
-            // Check for user
-            if (!user) {
-                return res.status(404).json('User not found')
-            }
+  console.log(req.body)
 
-            // Check password
-            bcrypt.compare(password, user.password)
-                .then(isMatch => {
-                    if (isMatch) {
-                        // User Matched
+  // Find the user by email
+  User.findOne({ email: email })
+    .then(user => {
+      // Check for user
+      if (!user) {
+        return res.status(404).json('User not found')
+      }
 
-                        const payload = { id: user.id, name: user.name } // Create JWT payload
+      // Check password
+      bcrypt.compare(password, user.password)
+        .then(isMatch => {
+          if (isMatch) {
+            // User Matched
 
-                        // Sign Token
-                        jwt.sign(payload, keys.secretOrKey, { expiresIn: 864000 }, (err, token) => {
-                            res.json({
-                                success: true,
-                                token: 'Bearer ' + token
-                            })
-                        })
-                    } else {
-                        res.status(400).json('Password incorrect')
-                    }
-                })
+            const payload = { id: user.id, name: user.name } // Create JWT payload
+
+            // Sign Token
+            jwt.sign(payload, keys.secretOrKey, { expiresIn: 86000 }, (err, token) => {
+              res.json(token)
+            })
+          } else {
+            res.status(400).json('Password incorrect')
+          }
         })
+    })
 })
 
 module.exports = router

@@ -30,6 +30,23 @@
             <li class="nav-item">
                 <button class="nav-link nav-button" id="loginBtn" onclick="loginClicked()">Login</button>
             </li>
+            <li class="nav-item">
+                <button class="nav-link nav-button" id="logoutBtn" onclick="logOut()">Logout</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link nav-button" id="addBtn" onclick="addAnimalsClicked()">Add Animals</button>
+            </li>
+            <script>
+                (async () => {
+                    if (localStorage.getItem('jwtToken') !== null) {
+                        document.getElementById('loginBtn').style.display = 'none'
+                        document.getElementById('registerBtn').style.display = 'none'
+                        console.log('Logged')
+                    } else {
+                        document.getElementById('logoutBtn').style.display = 'none'
+                    }
+                })();
+            </script>
         </ul>
     </div>
 </nav>

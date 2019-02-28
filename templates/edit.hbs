@@ -1,0 +1,19 @@
+Edit
+<form class="editAnimalForm" name="edit-animal-form">
+    <div class="form-group">
+        <input type="text" class="form-control" id='petNameEdit' value="{{ name }}">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" id='petPictureEdit' value="{{ picture }}">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" id='petBreedEdit' value="{{ breed }}">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" id='petGenderEdit' value="{{ gender }}">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" id='petYearsEdit' value="{{ years }}">
+    </div>
+    <button type="submit" class="btn" id="editSaveBtn" name='{{ _id }}'>Save</button>
+</form>

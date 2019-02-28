@@ -1,1 +1,31 @@
-<h1>Adopt</h1>
+<div class="row">
+    <div class="col-lg-6">
+        <h2>Name: {{ name }} </h2>
+        <h2>Breed: {{ breed }} </h2>
+        <h2>Age: {{ years }} </h2>
+        <h2>Gender: {{ gender }} </h2>
+    </div>
+    <div class="col-lg-6">
+        <img src="{{picture}}" alt="">
+        <button class="editBtn" name='{{_id}}'>Edit</button>
+        <button class='delBtn' name='{{_id}}'>Delete</button>
+
+        <script>
+            (async () => {
+                if (localStorage.getItem('isAdmin') === 'true') {
+
+                    for (let i = 0; i < document.getElementsByClassName('editBtn').length; i++) {
+                        document.getElementsByClassName('editBtn')[i].style.display = 'inline'
+                        document.getElementsByClassName('delBtn')[i].style.display = 'inline'
+                    }
+
+                } else {
+                    for (let i = 0; i < document.getElementsByClassName('editBtn').length; i++) {
+                        document.getElementsByClassName('editBtn')[i].style.display = 'none'
+                        document.getElementsByClassName('delBtn')[i].style.display = 'none'
+                    }
+                }
+            })();
+        </script>
+    </div>
+</div>

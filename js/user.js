@@ -17,7 +17,7 @@ $(document).on('submit', '.register-form', function (e) {
       'Content-Type': 'application/json'
     }
   })
-    .then(newUser => document.location.href = "/")
+    .then(newUser => document.location.href = '/')
     .catch(error => console.log('error is', error))
 })
 
@@ -41,19 +41,19 @@ $(document).on('submit', '.login-form', function (e) {
       token = parseJwt(data)
       localStorage.setItem('jwtToken', data)
     })
-    .then(newUser => document.location.href = "/")
+    .then(newUser => document.location.href = '/')
 
-  function parseJwt(token) {
+  function parseJwt (token) {
     var base64Url = token.split('.')[1]
     var base64 = base64Url.replace('-', '+').replace('_', '/')
     return JSON.parse(window.atob(base64))
   };
-
 })
 
 // Logout
 
-function logOut() {
+function logOut () {
   localStorage.removeItem('jwtToken')
-  document.location.href = "/";
+  localStorage.removeItem('isAdmin')
+  document.location.href = '/'
 }

@@ -1,4 +1,5 @@
-#aboutUs, #supportUs, #adopt, #adopted, #register, #login, #addAnimals, #addBtn, #contacts, .map {
+#aboutUs, #supportUs, #adopt, #adopted, #register, #login, #addAnimals, #addBtn, #contacts,
+     .map {
     display: none;
 }
 
@@ -50,11 +51,9 @@ button{
 }
 
 .container{
-    min-height: 100vh;
-}
-
-.contacts-container{
-    min-height: 100px;
+    min-height: 70vh;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 footer{
@@ -69,3 +68,13 @@ footer{
 .navbar-brand{
     color: #00F6BD;
 }
+
+/* Donation Page */
+#supportUs h1, #supportUs h2{
+text-align: center;
+}
+.donation img{
+    height: 300px;;
+    object-fit: cover;
+}
+

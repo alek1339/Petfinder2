@@ -14,6 +14,7 @@ function loginClicked () {
   document.getElementById('adopted').style.display = 'none'
   document.getElementById('contacts').style.display = 'none'
   document.getElementsByClassName('map')[0].style.display = 'none'
+  document.getElementById('edit').style.display = 'none'
 
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
   document.getElementById('homeBtn').classList.remove('active')
@@ -38,6 +39,7 @@ function registerClicked () {
   document.getElementById('adopted').style.display = 'none'
   document.getElementById('contacts').style.display = 'none'
   document.getElementsByClassName('map')[0].style.display = 'none'
+  document.getElementById('edit').style.display = 'none'
 
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
   document.getElementById('homeBtn').classList.remove('active')
@@ -62,6 +64,7 @@ function aboutUsClicked () {
   document.getElementById('adopted').style.display = 'none'
   document.getElementById('contacts').style.display = 'none'
   document.getElementsByClassName('map')[0].style.display = 'none'
+  document.getElementById('edit').style.display = 'none'
 
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
   document.getElementById('homeBtn').classList.remove('active')
@@ -86,6 +89,7 @@ function homeClicked () {
   document.getElementById('adopted').style.display = 'none'
   document.getElementById('contacts').style.display = 'none'
   document.getElementsByClassName('map')[0].style.display = 'none'
+  document.getElementById('edit').style.display = 'none'
 
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
   document.getElementById('homeBtn').classList.add('active')
@@ -110,6 +114,7 @@ function supportUsClicked () {
   document.getElementById('adopted').style.display = 'none'
   document.getElementById('contacts').style.display = 'none'
   document.getElementsByClassName('map')[0].style.display = 'none'
+  document.getElementById('edit').style.display = 'none'
 
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
   document.getElementById('homeBtn').classList.remove('active')
@@ -134,6 +139,7 @@ function adoptClicked () {
   document.getElementById('adopted').style.display = 'none'
   document.getElementById('contacts').style.display = 'none'
   document.getElementsByClassName('map')[0].style.display = 'none'
+  // document.getElementById('edit').style.display = 'none'
 
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
   document.getElementById('homeBtn').classList.remove('active')
@@ -158,6 +164,7 @@ function addAnimalsClicked () {
   document.getElementById('adopted').style.display = 'none'
   document.getElementById('contacts').style.display = 'none'
   document.getElementsByClassName('map')[0].style.display = 'none'
+  document.getElementById('edit').style.display = 'none'
 
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
   document.getElementById('homeBtn').classList.remove('active')
@@ -182,6 +189,7 @@ function adoptedClicked () {
   document.getElementById('adopted').style.display = 'block'
   document.getElementById('contacts').style.display = 'none'
   document.getElementsByClassName('map')[0].style.display = 'none'
+  document.getElementById('edit').style.display = 'none'
 
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
   document.getElementById('homeBtn').classList.remove('active')
@@ -206,6 +214,7 @@ function contactsClicked () {
   document.getElementById('adopted').style.display = 'none'
   document.getElementById('contacts').style.display = 'block'
   document.getElementsByClassName('map')[0].style.display = 'block'
+  document.getElementById('edit').style.display = 'none'
 
   document.getElementsByClassName('container')[0].classList.add('contacts-container')
   document.getElementById('homeBtn').classList.remove('active')

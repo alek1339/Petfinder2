@@ -5,21 +5,23 @@ const config = require('./db')
 const cors = require('cors')
 
 const users = require('./routes/users')
+const animals = require('./routes/animals')
 
 mongoose.Promise = global.Promise
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
-    () => { console.log('Database is connected') },
-    err => { console.log('Can not connect to the database' + err) }
+  () => { console.log('Database is connected') },
+  err => { console.log('Can not connect to the database' + err) }
 )
 
 const app = express()
 
 app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(bodyParser.json());
+  extended: true
+}))
+app.use(bodyParser.json())
 app.use(cors())
 app.use('/users', users)
+app.use('/animals', animals)
 
 const PORT = 5000
 

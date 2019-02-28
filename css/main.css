@@ -7,8 +7,19 @@ nav{
     background-color: #101C39;
 }
 
+.myBgCOl-1{
+    background-color: #63F5D4;
+}
+
 h1, h2, h3, h4, h5, h6, p{
     color: #101C39
+}
+
+.row{
+    margin-top: 2.5rem;
+    padding: 3rem;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 #contacts h1{
@@ -51,7 +62,6 @@ button{
 }
 
 .container{
-    min-height: 70vh;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -78,3 +88,19 @@ text-align: center;
     object-fit: cover;
 }
 
+.separation-1{
+    /* height: 200px; */
+    padding: 5rem;
+    background-image: url('https://newevolutiondesigns.com/images/freebies/dog-facebook-cover-4.jpg');
+    width: 100%;
+    background-size: cover;
+}
+
+
+/* AboutUs */
+
+.aboutUsImages{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}

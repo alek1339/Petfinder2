@@ -16,6 +16,6 @@ $(document).on('submit', '.addAnimalForm', function (e) {
       'Content-Type': 'application/json'
     }
   })
-    .then(newAnimal => console.log(newAnimal))
+    .then( document.location.href = '/')
     .catch(error => console.log('error is', error))
 })

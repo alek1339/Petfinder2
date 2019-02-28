@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json())
 app.use(cors())
+
+// Routes
 app.use('/users', users)
 app.use('/animals', animals)
 

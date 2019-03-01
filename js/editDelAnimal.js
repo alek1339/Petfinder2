@@ -43,10 +43,10 @@ $(document).on('click', '.editBtn', function (e) {
         editAnimal(data)
       })
 
-    function editAnimal (res) {
+    function editAnimal(res) {
       animal = res
       document.getElementById('adopt').style.display = 'none'
-
+      document.getElementById('edit').style.display = 'block'
       let resultHtml = template(animal)
       $('#edit').append(Handlebars.compile(resultHtml))
     }

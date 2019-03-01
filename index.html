@@ -15,6 +15,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/media.css">
 
     <title>Petfinder</title>
 </head>
@@ -32,131 +33,131 @@
     </header>
 
 
-        <section id="home">
-            <script>
-                (async () => {
-                    let home = await $.get('templates/home.hbs')
-                    $("#home").append(Handlebars.compile(home))
-                })();
-            </script>
-        </section>
+    <section id="home">
+        <script>
+            (async () => {
+                let home = await $.get('templates/home.hbs')
+                $("#home").append(Handlebars.compile(home))
+            })();
+        </script>
+    </section>
 
-        <section id="aboutUs">
-            <script>
-                (async () => {
-                    let aboutUs = await $.get('templates/aboutUs.hbs')
-                    $("#aboutUs").append(Handlebars.compile(aboutUs))
-                })();
-            </script>
-        </section>
+    <section id="aboutUs">
+        <script>
+            (async () => {
+                let aboutUs = await $.get('templates/aboutUs.hbs')
+                $("#aboutUs").append(Handlebars.compile(aboutUs))
+            })();
+        </script>
+    </section>
 
-        <section id="supportUs">
-            <script>
-                (async () => {
-                    let supportUs = await $.get('templates/supportUs.hbs')
-                    $("#supportUs").append(Handlebars.compile(supportUs))
-                })();
-            </script>
-        </section>
+    <section id="supportUs">
+        <script>
+            (async () => {
+                let supportUs = await $.get('templates/supportUs.hbs')
+                $("#supportUs").append(Handlebars.compile(supportUs))
+            })();
+        </script>
+    </section>
 
-        <section id="adopt">
-            <script>
-                (async () => {
-                    let adopt = await $.get('templates/adopt.hbs')
-                    let template = Handlebars.compile(adopt)
+    <section id="adopt">
+        <script>
+            (async () => {
+                let adopt = await $.get('templates/adopt.hbs')
+                let template = Handlebars.compile(adopt)
 
-                    let animals = {}
+                let animals = {}
 
-                    $.ajax('http://localhost:5000/animals/getAnimals')
-                        .then(response => addAllAnimals(response))
+                $.ajax('http://localhost:5000/animals/getAnimals')
+                    .then(response => addAllAnimals(response))
 
 
-                    function addAllAnimals(animals) {
-                        for (const pet of animals) {
-                            let resultHtml = template(pet)
-                            $("#adopt").append(Handlebars.compile(resultHtml))
-                        }
+                function addAllAnimals(animals) {
+                    for (const pet of animals) {
+                        let resultHtml = template(pet)
+                        $("#adopt").append(Handlebars.compile(resultHtml))
                     }
+                }
 
-                })();
-            </script>
-        </section>
+            })();
+        </script>
+    </section>
 
-        <section id="adopted">
-            <script>
-                (async () => {
-                    let adopted = await $.get('templates/adopted.hbs')
-                    $("#adopted").append(Handlebars.compile(adopted))
-                })();
-            </script>
-        </section>
+    <section id="adopted">
+        <script>
+            (async () => {
+                let adopted = await $.get('templates/adopted.hbs')
+                $("#adopted").append(Handlebars.compile(adopted))
+            })();
+        </script>
+    </section>
 
 
 
-        <section id="register">
-            <script>
-                (async () => {
-                    let register = await $.get('templates/register.hbs')
-                    $("#register").append(Handlebars.compile(register))
-                })();
-            </script>
-        </section>
+    <section id="register">
+        <script>
+            (async () => {
+                let register = await $.get('templates/register.hbs')
+                $("#register").append(Handlebars.compile(register))
+            })();
+        </script>
+    </section>
 
-        <section id="login">
-            <script>
-                (async () => {
-                    let login = await $.get('templates/login.hbs')
-                    $("#login").append(Handlebars.compile(login))
-                })();
-            </script>
-        </section>
+    <section id="login">
+        <script>
+            (async () => {
+                let login = await $.get('templates/login.hbs')
+                $("#login").append(Handlebars.compile(login))
+            })();
+        </script>
+    </section>
 
-        <section id="addAnimals">
-            <script>
-                (async () => {
-                    if (isAdmin()) {
-                        let addAnimals = await $.get('templates/addAnimals.hbs')
-                        $("#addAnimals").append(Handlebars.compile(addAnimals))
-                        document.getElementById('addBtn').style.display = 'block'
+    <section id="addAnimals">
+        <script>
+            (async () => {
+                if (isAdmin()) {
+                    let addAnimals = await $.get('templates/addAnimals.hbs')
+                    $("#addAnimals").append(Handlebars.compile(addAnimals))
+                    document.getElementById('addBtn').style.display = 'block'
+                } else {
+                    $("#addAnimals").append(Handlebars.compile('<h1>This page is only for admins!</h1>'))
+                }
+
+                function parseJwt(token) {
+                    var base64Url = token.split('.')[1]
+                    var base64 = base64Url.replace('-', '+').replace('_', '/')
+                    return JSON.parse(window.atob(base64))
+                }
+
+                function isAdmin() {
+                    let token = localStorage.getItem('jwtToken')
+                    let decoded = parseJwt(token)
+                    if (Date.now() / 1000 < decoded.exp && decoded.id === '5c739bd04bb07817f875af6b') {
+                        localStorage.setItem('isAdmin', 'true')
+                        return true
                     } else {
-                        $("#addAnimals").append(Handlebars.compile('<h1>This page is only for admins!</h1>'))
+                        localStorage.removeItem('isAdmin')
+                        return false
                     }
+                }
 
-                    function parseJwt(token) {
-                        var base64Url = token.split('.')[1]
-                        var base64 = base64Url.replace('-', '+').replace('_', '/')
-                        return JSON.parse(window.atob(base64))
-                    }
-
-                    function isAdmin() {
-                        let token = localStorage.getItem('jwtToken')
-                        let decoded = parseJwt(token)
-                        if (Date.now() / 1000 < decoded.exp && decoded.id === '5c739bd04bb07817f875af6b') {
-                            localStorage.setItem('isAdmin', 'true')
-                            return true
-                        } else {
-                            localStorage.removeItem('isAdmin')
-                            return false
-                        }
-                    }
-
-                })();
-            </script>
+            })();
+        </script>
 
 
-        </section>
+    </section>
 
-        <section id="edit">
-        </section>
+    <section id="edit">
+    </section>
 
-        <section id="contacts">
-            <script>
-                (async () => {
-                    let contacts = await $.get('templates/contacts.hbs')
-                    $("#contacts").append(Handlebars.compile(contacts))
-                })();
-            </script>
-        </section>
+    <section id="contacts">
+        <script>
+            (async () => {
+                let contacts = await $.get('templates/contacts.hbs')
+                $("#contacts").append(Handlebars.compile(contacts))
+            })();
+        </script>
+    </section>
 
 
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d187673.3087043525!2d23.183860109526552!3d42.695346799879815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa8682cb317bf5%3A0x400a01269bf5e60!2z0KHQvtGE0LjRjw!5e0!3m2!1sbg!2sbg!4v1551206501812"

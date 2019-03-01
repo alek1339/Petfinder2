@@ -70,6 +70,10 @@ button{
     color: #00F6BD;
 }
 
+button:hover{
+    color: #00A580;
+}
+
 .active{
     color: #00F6BD;
     outline: none;
@@ -80,8 +84,16 @@ button{
     cursor: pointer;
 }
 
-.register-form input, .login-form input{
-    width: 50%;
+.register-form input{
+    width: 600px;
+}
+
+.login-form input{
+    width: 400px;
+}
+
+.h100{
+    min-height: 70vh;
 }
 
 .container{
@@ -100,6 +112,9 @@ footer{
 
 .navbar-brand{
     color: #00F6BD;
+}
+.navbar-brand:hover{
+    color: white;
 }
 
 /* Donation Page */
@@ -121,11 +136,33 @@ footer{
     color: white;
 }
 
-
 /* AboutUs */
 
 .aboutUsImages{
     height: 200px;
     width: 100%;
     object-fit: cover;
+}
+
+
+/* SupportUs */
+
+.supportUsImages{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Register form */
+.register-form, .register-form input, .login-form, .login-form input{
+    background-color: #00F6BD;
+}
+
+.register-form, .login-form{
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.register-form ::-webkit-input-placeholder, .login-form ::-webkit-input-placeholder{
+    color: rgb(41, 40, 40);
 }

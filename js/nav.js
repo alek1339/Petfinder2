@@ -12,13 +12,13 @@ displayNoneElements.push(document.getElementById('contacts'))
 displayNoneElements.push(document.getElementsByClassName('map')[0])
 displayNoneElements.push(document.getElementById('edit'))
 
-function hideElements() {
+function hideElements () {
   for (let i = 0; i < displayNoneElements.length; i++) {
     displayNoneElements[i].style.display = 'none'
   }
 }
 
-function loginClicked() {
+function loginClicked () {
   hideElements()
   document.getElementById('login').style.display = 'block'
 
@@ -28,7 +28,7 @@ function loginClicked() {
   document.getElementById('loginBtn').classList.add('active')
 }
 
-function registerClicked() {
+function registerClicked () {
   hideElements()
   document.getElementById('register').style.display = 'block'
 
@@ -37,71 +37,72 @@ function registerClicked() {
   document.getElementById('registerBtn').classList.add('active')
 }
 
-function aboutUsClicked() {
+function aboutUsClicked () {
   hideElements()
   document.getElementById('aboutUs').style.display = 'block'
-
+  window.scrollTo(0, 0)
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
   document.getElementsByClassName('active')[0].classList.remove('active')
   document.getElementById('aboutUsBtn').classList.add('active')
 }
 
-function homeClicked() {
+function homeClicked () {
   hideElements()
   document.getElementById('home').style.display = 'block'
-
+  window.scrollTo(0, 0)
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
 
   document.getElementsByClassName('active')[0].classList.remove('active')
   document.getElementById('homeBtn').classList.add('active')
 }
 
-function supportUsClicked() {
+function supportUsClicked () {
   hideElements()
   document.getElementById('supportUs').style.display = 'block'
-
+  window.scrollTo(0, 0)
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
 
   document.getElementsByClassName('active')[0].classList.remove('active')
   document.getElementById('supportUsBtn').classList.add('active')
 }
 
-function adoptClicked() {
+function adoptClicked () {
   hideElements()
   document.getElementById('adopt').style.display = 'block'
   // document.getElementById('edit').style.display = 'none'
-
+  window.scrollTo(0, 0)
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
 
   document.getElementsByClassName('active')[0].classList.remove('active')
   document.getElementById('adoptBtn').classList.add('active')
 }
 
-function addAnimalsClicked() {
+function addAnimalsClicked () {
   hideElements()
   document.getElementById('addAnimals').style.display = 'block'
-
+  window.scrollTo(0, 0)
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
 
   document.getElementsByClassName('active')[0].classList.remove('active')
   document.getElementById('addBtn').classList.add('active')
 }
 
-function adoptedClicked() {
+function adoptedClicked () {
   hideElements()
   document.getElementById('adopted').style.display = 'block'
 
+  window.scrollTo(0, 0)
   document.getElementsByClassName('container')[0].classList.remove('contacts-container')
 
   document.getElementsByClassName('active')[0].classList.remove('active')
   document.getElementById('adoptedBtn').classList.add('active')
 }
 
-function contactsClicked() {
+function contactsClicked () {
   hideElements()
   document.getElementById('contacts').style.display = 'block'
   document.getElementsByClassName('map')[0].style.display = 'block'
-
+  window.scrollTo(0, 0)
   document.getElementsByClassName('container')[0].classList.add('contacts-container')
 
   document.getElementsByClassName('active')[0].classList.remove('active')

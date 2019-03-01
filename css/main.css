@@ -3,8 +3,19 @@
     display: none;
 }
 
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
+
 nav{
     background-color: #101C39;
+}
+
+.navbar-toggler{
+    color: #00F6BD;
+}
+.fa-bars{
+    font-size: 30px;
 }
 
 .myBgCOl-1{
@@ -15,11 +26,23 @@ h1, h2, h3, h4, h5, h6, p{
     color: #101C39
 }
 
+.btn{
+    text-align: center;
+}
+
 .row{
-    margin-top: 2.5rem;
-    padding: 3rem;
+
     margin-left: 0;
     margin-right: 0;
+}
+
+.myRow{
+    margin-top: 2.5rem;
+    padding: 3rem;
+}
+
+figure img{
+    border-radius: 10px;
 }
 
 #contacts h1{
@@ -80,9 +103,6 @@ footer{
 }
 
 /* Donation Page */
-#supportUs h1, #supportUs h2{
-text-align: center;
-}
 .donation img{
     height: 300px;;
     object-fit: cover;
@@ -90,10 +110,15 @@ text-align: center;
 
 .separation-1{
     /* height: 200px; */
-    padding: 5rem;
+    padding: 8rem;
     background-image: url('https://newevolutiondesigns.com/images/freebies/dog-facebook-cover-4.jpg');
     width: 100%;
     background-size: cover;
+    
+}
+
+.separation-1 h1, .separation-1 h2{
+    color: white;
 }
 
 

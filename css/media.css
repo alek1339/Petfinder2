@@ -1,5 +1,7 @@
 @media only screen and (max-width: 770px) {
-    
+    body{
+        background-color: lightblue;
+    }
     .separation-1{
         padding-left: 0;
         padding-top: 1rem;
@@ -18,5 +20,16 @@
     }
     .modal img {
         max-width: 70%;
+    }
+  }
+
+  @media only screen and (max-width: 460px) {
+    .register-form input, .login-form input{
+        width: 370px;
+    }
+  }
+  @media only screen and (max-width: 360px) {
+    .register-form input, .login-form input{
+        width: 340px;
     }
   }

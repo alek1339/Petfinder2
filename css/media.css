@@ -1,3 +1,16 @@
+@media only screen and (max-width: 1000px) {
+    .pictures .row{
+        margin: 0;
+    }
+    .item{
+        margin-bottom: 18px;
+    }
+    .modal i{
+        margin-top: 8px;
+        margin-right: 8px;
+    }
+}
+
 @media only screen and (max-width: 770px) {
     body{
         background-color: lightblue;
@@ -21,6 +34,8 @@
     .modal img {
         max-width: 70%;
     }
+
+    
   }
 
   @media only screen and (max-width: 460px) {

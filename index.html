@@ -61,27 +61,36 @@
     </section>
 
     <section id="adopt">
-        <script>
-            (async () => {
-                let adopt = await $.get('templates/adopt.hbs')
-                let template = Handlebars.compile(adopt)
 
-                let animals = {}
-
-                $.ajax('http://localhost:5000/animals/getAnimals')
-                    .then(response => addAllAnimals(response))
-
-
-                function addAllAnimals(animals) {
-                    for (const pet of animals) {
-                        let resultHtml = template(pet)
-                        $("#adopt").append(Handlebars.compile(resultHtml))
-                    }
-                }
-
-            })();
-        </script>
-    </section>
+                    <select id='genderOptions'>
+                        <option value="all">All</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+        
+        <div id="pets">
+                <script>
+                        (async () => {
+                            let adopt = await $.get('templates/adopt.hbs')
+                            let template = Handlebars.compile(adopt)
+            
+                            let animals = {}
+            
+                            $.ajax('http://localhost:5000/animals/getAnimals')
+                                .then(response => addAllAnimals(response))
+            
+            
+                            function addAllAnimals(animals) {
+                                for (const pet of animals) {
+                                    let resultHtml = template(pet)
+                                    $("#pets").append(Handlebars.compile(resultHtml))
+                                }
+                            }
+            
+                        })();
+                    </script>
+                </section>
+        </div>
 
     <section id="adopted">
         <script>
@@ -184,6 +193,7 @@
     <script src="./js/addAnimal.js"></script>
     <script src="./js/editDelAnimal.js"></script>
     <script src="./js/modal.js"></script>
+    <script src="./js/petFilter.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </body>

@@ -61,36 +61,52 @@
     </section>
 
     <section id="adopt">
-
-                    <select id='genderOptions'>
-                        <option value="all">All</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-        
-        <div id="pets">
-                <script>
-                        (async () => {
-                            let adopt = await $.get('templates/adopt.hbs')
-                            let template = Handlebars.compile(adopt)
-            
-                            let animals = {}
-            
-                            $.ajax('http://localhost:5000/animals/getAnimals')
-                                .then(response => addAllAnimals(response))
-            
-            
-                            function addAllAnimals(animals) {
-                                for (const pet of animals) {
-                                    let resultHtml = template(pet)
-                                    $("#pets").append(Handlebars.compile(resultHtml))
-                                }
-                            }
-            
-                        })();
-                    </script>
-                </section>
+        <div class="col-md-12 text-center mt-3 mb-3">
+            Filter By Gender
+            <select id='genderOptions'>
+                <option value="all">All</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            Filter By Age
+            <select id='yearsOptions'>
+                <option value="all">All</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
         </div>
+
+
+        <div id="pets">
+            <script>
+                (async () => {
+                    let adopt = await $.get('templates/adopt.hbs')
+                    let template = Handlebars.compile(adopt)
+
+                    let animals = {}
+
+                    $.ajax('http://localhost:5000/animals/getAnimals')
+                        .then(response => addAllAnimals(response))
+
+
+                    function addAllAnimals(animals) {
+                        for (const pet of animals) {
+                            let resultHtml = template(pet)
+                            $("#pets").append(Handlebars.compile(resultHtml))
+                        }
+                    }
+
+                })();
+            </script>
+    </section>
+    </div>
 
     <section id="adopted">
         <script>
@@ -188,6 +204,9 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+
     <script src="./js/nav.js"></script>
     <script src="./js/user.js"></script>
     <script src="./js/addAnimal.js"></script>

@@ -42,6 +42,14 @@
     .register-form input, .login-form input{
         width: 370px;
     }
+    .prev{
+        left: 5px;
+      }
+      
+      .next{
+          right:5px;
+      }
+      
   }
   @media only screen and (max-width: 360px) {
     .register-form input, .login-form input{
